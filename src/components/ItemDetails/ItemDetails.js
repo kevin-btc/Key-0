@@ -9,8 +9,6 @@ const ItemDetails = () => {
   const { id } = useParams();
   const [nft, setNft] = useState();
 
-  console.log({ id });
-
   useEffect(() => {
     const selectedNft = db.collection[id];
 

@@ -25,12 +25,12 @@
 1. Preloader
 ----------------------------------------------*/
 
-$(document).ready(function () {
+$(document).ready(function() {
   /*----------------------------------------------
     2. Preloader
     ----------------------------------------------*/
-  (function ($) {
-    $(window).on("load", function () {
+  (function($) {
+    $(window).on("load", function() {
       $("#netstorm-preloader").addClass("loaded");
     });
   })(jQuery);
@@ -38,7 +38,7 @@ $(document).ready(function () {
   /*----------------------------------------------
     2. Responsive Menu
     ----------------------------------------------*/
-  (function ($) {
+  (function($) {
     function navResponsive() {
       let navbar = $(".navbar .items");
       let menu = $("#menu .items");
@@ -53,21 +53,21 @@ $(document).ready(function () {
 
     navResponsive();
 
-    $(window).on("resize", function () {
+    $(window).on("resize", function() {
       navResponsive();
     });
 
-    $(".menu .dropdown-menu").each(function () {
+    $(".menu .dropdown-menu").each(function() {
       var children = $(this).children(".dropdown").length;
       $(this).addClass("children-" + children);
     });
 
-    $(".menu .nav-item.dropdown").each(function () {
+    $(".menu .nav-item.dropdown").each(function() {
       var children = $(this).children(".nav-link");
       children.addClass("prevent");
     });
 
-    $(document).on("click", "#menu .nav-item .nav-link", function (event) {
+    $(document).on("click", "#menu .nav-item .nav-link", function(event) {
       if ($(this).hasClass("prevent")) {
         event.preventDefault();
       }
@@ -85,12 +85,12 @@ $(document).ready(function () {
   /*----------------------------------------------
     3. Navigation
     ----------------------------------------------*/
-  (function ($) {
+  (function($) {
     var position = $(window).scrollTop();
     var toTop = $("#scroll-to-top");
     var navbar = $(".navbar");
 
-    $(document).ready(function () {
+    $(document).ready(function() {
       if (position > 0) {
         navbar.hide();
       }
@@ -98,7 +98,7 @@ $(document).ready(function () {
 
     toTop.hide();
 
-    $(window).scroll(function () {
+    $(window).scroll(function() {
       let scroll = $(window).scrollTop();
       let navbar = $(".navbar");
 
@@ -131,14 +131,14 @@ $(document).ready(function () {
       }
     });
 
-    $(".nav-link").each(function () {
+    $(".nav-link").each(function() {
       let href = $(this).attr("href");
       if (href.length > 1 && href.indexOf("#") != -1) {
         $(this).addClass("smooth-anchor");
       }
     });
 
-    $(document).on("click", ".smooth-anchor", function (event) {
+    $(document).on("click", ".smooth-anchor", function(event) {
       event.preventDefault();
 
       $("html, body").animate(
@@ -149,15 +149,23 @@ $(document).ready(function () {
       );
     });
 
-    $(".dropdown-menu").each(function () {
+    $(".dropdown-menu").each(function() {
       let dropdown = $(this);
 
       dropdown.hover(
-        function () {
-          dropdown.parent().find(".nav-link").first().addClass("active");
+        function() {
+          dropdown
+            .parent()
+            .find(".nav-link")
+            .first()
+            .addClass("active");
         },
-        function () {
-          dropdown.parent().find(".nav-link").first().removeClass("active");
+        function() {
+          dropdown
+            .parent()
+            .find(".nav-link")
+            .first()
+            .removeClass("active");
         }
       );
     });
@@ -166,12 +174,12 @@ $(document).ready(function () {
   /*----------------------------------------------
     4. Slides
     ----------------------------------------------*/
-  (function ($) {
-    setTimeout(function () {
+  (function($) {
+    setTimeout(function() {
       $(".no-slider .left").addClass("init");
     }, 1200);
 
-    var animation = function (slider) {
+    var animation = function(slider) {
       let image = $(slider + " .swiper-slide-active img");
       let title = $(slider + " .title");
       let description = $(slider + " .description");
@@ -184,7 +192,7 @@ $(document).ready(function () {
       btn.toggleClass("aos-animate");
       nav.toggleClass("aos-animate");
 
-      setTimeout(function () {
+      setTimeout(function() {
         image.toggleClass("aos-animate");
         title.toggleClass("aos-animate");
         description.toggleClass("aos-animate");
@@ -198,11 +206,11 @@ $(document).ready(function () {
         $(".full-slider .left").addClass("off");
         $(".full-slider .left").removeClass("init");
 
-        setTimeout(function () {
+        setTimeout(function() {
           $(".full-slider .left").removeClass("off");
         }, 200);
 
-        setTimeout(function () {
+        setTimeout(function() {
           $(".full-slider .left").addClass("init");
         }, 1000);
       } else {
@@ -230,18 +238,18 @@ $(document).ready(function () {
         onlyInViewport: false,
       },
       on: {
-        init: function () {
+        init: function() {
           animation(".full-slider");
 
           let pagination = $(".full-slider .swiper-pagination");
 
           pagination.hide();
 
-          setTimeout(function () {
+          setTimeout(function() {
             pagination.show();
           }, 2000);
         },
-        slideChange: function () {
+        slideChange: function() {
           animation(".full-slider");
         },
       },
@@ -303,7 +311,7 @@ $(document).ready(function () {
       grabCursor: false,
       allowTouchMove: false,
       on: {
-        init: function () {
+        init: function() {
           animation(".no-slider");
         },
       },
@@ -313,25 +321,29 @@ $(document).ready(function () {
   /*----------------------------------------------
     5. Load More
     ----------------------------------------------*/
-  (function ($) {
-    $(".load-more .item").slice(0, 20).show();
+  // (function($) {
+  //   $(".load-more .item")
+  //     .slice(0, 12)
+  //     .show();
 
-    $("#load-btn").on("click", function (e) {
-      e.preventDefault();
+  //   $("#load-btn").on("click", function(e) {
+  //     e.preventDefault();
 
-      $(".load-more .item:hidden").slice(0, 20).slideDown();
+  //     $(".load-more .item:hidden")
+  //       .slice(0, 12)
+  //       .slideDown();
 
-      if ($(".load-more .item:hidden").length == 0) {
-        $("#load-btn").fadeOut("slow");
-      }
-    });
-  })(jQuery);
+  //     if ($(".load-more .item:hidden").length == 0) {
+  //       $("#load-btn").fadeOut("slow");
+  //     }
+  //   });
+  // })(jQuery);
 
   /*----------------------------------------------
     6. Shuffle
     ----------------------------------------------*/
-  (function ($) {
-    $(".explore-area").each(function (index) {
+  (function($) {
+    $(".explore-area").each(function(index) {
       var count = index + 1;
 
       $(this)
@@ -356,7 +368,7 @@ $(document).ready(function () {
         }
       );
 
-      $(".explore-btn-" + count).on("change", function (e) {
+      $(".explore-btn-" + count).on("change", function(e) {
         var input = e.currentTarget;
 
         if (input.checked) {

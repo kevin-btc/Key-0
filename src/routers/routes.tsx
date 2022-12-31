@@ -18,7 +18,7 @@ const configRoutes = [
     component: Home,
   },
   {
-    path: "/item-details/:id",
+    path: "/item-details/:id/:page",
     component: ItemDetails,
     title: "Details",
   },

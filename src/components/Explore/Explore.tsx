@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 
 import "react-medium-image-zoom/dist/styles.css";
@@ -13,13 +13,25 @@ type nftType = {
   value?: string;
 };
 
-const Explore = ({ loadBtn }: { loadBtn: boolean }) => {
-  const nft: nftType[] = db.collection;
+const OFFSET = 12;
 
-  console.log("nft");
+const Explore = ({ loadBtn }: { loadBtn: boolean }) => {
+  const allnNft: nftType[] = db.collection;
+
+  const [nft, setNFT] = useState(allnNft.slice(0, OFFSET));
+  const [page, setPage] = useState(0);
+
+  function onClickMore() {
+    setNFT((prev) => [
+      ...prev,
+      ...allnNft.slice((page + 1) * OFFSET, (page + 1) * OFFSET + OFFSET),
+    ]);
+
+    setPage((prev) => prev + 1);
+  }
 
   return (
-    <section className="explore-area load-more p-5">
+    <section className="explore-area p-5">
       <div className="container" id="explore">
         <div className="row">
           <div className="col-12">
@@ -38,7 +50,7 @@ const Explore = ({ loadBtn }: { loadBtn: boolean }) => {
               <div key={id} className="col-12 col-sm-6 col-lg-3 item">
                 <div className="card">
                   <a
-                    href={`/item-details/${id}`}
+                    href={`/item-details/${id}/${page}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -56,38 +68,18 @@ const Explore = ({ loadBtn }: { loadBtn: boolean }) => {
                         >
                           <h5 className="mb-0">{item.name}</h5>
                         </a>
-                        {/* <div className="seller d-flex align-items-center my-3 text-white">
-                          <span>Owned By</span>
-                          <h6 className="ml-2 mb-0">{item.owner}</h6>
-                        </div>
-                        <div className="card-bottom d-flex justify-content-between">
-                          <span>{item.price} eGLD</span>
-                          <span>
-                            {item.count === 1
-                              ? "Unique edition"
-                              : `Serie of ${item.count}`}
-                          </span>
-                        </div> */}
                       </div>
                     </div>
                   </a>
-                  {/* <button
-                    className=" btn btn-small mt-3"
-                    onClick={() => onBuy(item)}
-                  >
-                    BUY
-                  </button> */}
                 </div>
               </div>
             );
           })}
         </div>
         {loadBtn && (
-          <div className="row">
+          <div className="row" onClick={() => onClickMore()}>
             <div className="col-12 text-center">
-              <button id="load-btn" className="btn btn-bordered-white mt-5">
-                Load More
-              </button>
+              <button className="btn btn-bordered-white mt-5">Load More</button>
             </div>
           </div>
         )}
