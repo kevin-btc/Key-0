@@ -5,6 +5,8 @@ import "react-medium-image-zoom/dist/styles.css";
 
 import db from "../../json-server/db.json";
 
+import Zoom from "react-medium-image-zoom";
+
 type nftType = {
   ipfs: string;
   name: string;
@@ -49,28 +51,23 @@ const Explore = ({ loadBtn }: { loadBtn: boolean }) => {
             return (
               <div key={id} className="col-12 col-sm-6 col-lg-3 item">
                 <div className="card">
-                  <a
-                    href={`/item-details/${id}/${page}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="image-over">
+                  <div className="image-over">
+                    <Zoom
+                      overlayBgColorEnd="rgba(0, 0, 0, 0.5)"
+                      overlayBgColorStart="rgba(0, 0, 0, 0)"
+                      closeText="Click to Close"
+                      openText="Click to See picture"
+                    >
                       <img src={item.ipfs} alt={item.name} />
+                    </Zoom>
+                  </div>
+                  {/* Card Caption */}
+                  <div className="card-caption col-12 p-0">
+                    {/* Card Body */}
+                    <div className="card-body">
+                      <h5 className="mb-0">{item.name}</h5>
                     </div>
-                    {/* Card Caption */}
-                    <div className="card-caption col-12 p-0">
-                      {/* Card Body */}
-                      <div className="card-body">
-                        <a
-                          href={`/item-details/${id}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <h5 className="mb-0">{item.name}</h5>
-                        </a>
-                      </div>
-                    </div>
-                  </a>
+                  </div>
                 </div>
               </div>
             );
