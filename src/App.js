@@ -6,5 +6,5 @@ import MyRouts from "./routers/routes";
 function App() {
   return <MyRouts />;
 }
-//test //test //test
+
 export default App;
