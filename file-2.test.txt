@@ -1,0 +1,28 @@
+
+fn add_numbers(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+fn factorial(n: u32) -> u32 {
+    match n {
+        0 => 1,
+        1 => 1,
+        _ => n * factorial(n - 1),
+    }
+}
+
+fn find_max(vec: Vec<i32>) -> Option<i32> {
+    vec.into_iter().max()
+}
+
+fn is_palindrome(s: &str) -> bool {
+    s.chars().eq(s.chars().rev())
+}
+
+fn sort_strings(vec: Vec<String>) -> Vec<String> {
+    let mut sorted_vec = vec;
+    sorted_vec.sort();
+    sorted_vec
+}
+
+6124kd7j4gf
