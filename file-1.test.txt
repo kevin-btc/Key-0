@@ -6,4 +6,4 @@ fn factorial(n: u32) -> u32 {
   }
 }
 
-31zpktr8vqd
+fp6t0lnxdef
