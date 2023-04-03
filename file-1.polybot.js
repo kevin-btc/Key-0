@@ -7,3 +7,5 @@ fn factorial(n: u32) -> u32 {
 }
 
 rnokaupmb3h
+
+yan1t3ia6x
