@@ -1,9 +1,3 @@
-fn add_numbers(x: i32, y: i32) -> i32 {
-  x + y
+fn sum_numbers(a: i32, b: i32) -> i32 {
+  a + b
 }
-
-mgfetd6xhe
-
-a4tphne7504
-
-35z7xvefs3z
