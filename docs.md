@@ -1,71 +1,34 @@
 [[file-0.polybot.js:start]]
 
-## Function: `sum_numbers(a: i32, b: i32) -> i32`
+## Function add_numbers
 
-This function takes two integer values, `a` and `b`, and returns their sum as an integer.
-
-### Example
-
-```rust
-let x = 2;
-let y = 3;
-let sum = sum_numbers(x, y);
-println!("{} + {} = {}", x, y, sum); // Output: 2 + 3 = 5
-```
+The `add_numbers` function takes in two arguments, `x` and `y`, which are both of type `i32` and returns their sum, which is also of type `i32`.
 
 ### Parameters
 
-- `a`: An integer value representing the first number to be added.
-- `b`: An integer value representing the second number to be added.
+- **x** : `i32` - The first integer input to be added. 
+- **y** : `i32` - The second integer input to be added.
 
-### Returns
+### Return value
 
-- An integer value that represents the sum of the two input parameters `a` and `b`.
+This function returns the sum of the two integers as an `i32`.
 
-## Context
+## Swizzling Components for RTL Language Support
 
-To handle right-to-left (RTL) languages, you would have to `swizzle` the components. Unfortunately, Docusaurus 2 currently does not have a built-in way for translations. However, we will take RTL languages into account when building it.
+To handle RTL (Right-to-Left) languages on Docusaurus 2, you would need to swizzle the existing components. Unfortunately, Docusaurus 2 does not yet have a built-in way for translations, but RTL language support is taken into account when building the platform.
 
-The country data returned from the API has the following format:
+## Country Data Format
 
-```
-{
-  "name": "Afghanistan",
-  "key": 4,
-  "alpha2Code": "AF",
-  "flagImageUri": "https://restcountries.com/data/afg.svg"
-}
-```
+The country data returned follows the format shown in the image below:
 
-Please ensure that you parse the name field correctly. It is a string representing the name of the country.
+![Country Data Format](https://i.stack.imgur.com/cWI9H.png)
+
+When parsing this data, ensure that the "name" field is correctly parsed along with the "key" field, which is an integer.
 
 [[file-0.polybot.js:end]]
 
 [[file-1.polybot.js:start]]
 
-# Docusaurus 2 Documentation
 
-Welcome to the Docusaurus 2 documentation! This documentation is aimed at developers who want to use Docusaurus 2 to build their website.
-
-## Swizzling Components
-
-To handle specific features, such as RTL languages, you may need to swizzle Docusaurus 2 components. Swizzling allows you to override and customize the default components to fit your unique requirements. To learn how to swizzle components, refer to the [Docusaurus 2 CLI documentation](https://v2.docusaurus.io/docs/cli/#docusaurus-swizzle).
-
-## Country Data Format
-
-When working with country data, it is important to ensure that you parse the data correctly. The country data returned has the following format:
-
-```  
-{
-  "name": "Afghanistan",
-  "alpha2Code": "AF",
-  "alpha3Code": "AFG",
-  ...
-}
-```
-
-Make sure to parse the `name` field correctly, as it contains the name of the country. Note that the `alpha2Code` and `alpha3Code` fields contain the two- and three-letter country codes, respectively.
-
-At present, we do not support translations in Docusaurus 2. However, we are working to take into account RTL languages in our future releases.
 
 [[file-1.polybot.js:end]]
