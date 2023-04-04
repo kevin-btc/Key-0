@@ -1,71 +1,84 @@
 [[file-0.polybot.js:start]]
 
-## Function: `sum_numbers(a: i32, b: i32) -> i32`
+Overview
 
-This function takes two integer values, `a` and `b`, and returns their sum as an integer.
+This document describes the technical implementation of a swizzle component to handle right-to-left (RTL) languages in Docusaurus 2. The implementation requires parsing the name field of the country data returned in a certain format, which requires careful attention to detail.
 
-### Example
+Swizzling Components for RTL Languages
 
-```rust
-let x = 2;
-let y = 3;
-let sum = sum_numbers(x, y);
-println!("{} + {} = {}", x, y, sum); // Output: 2 + 3 = 5
-```
+The Docusaurus team has not yet built a way for translations into RTL languages, but we will take them into account when we build it. In order to handle RTL languages, you need to swizzle the components. Swizzling is a process that involves modifying an existing component so that it functions differently.
 
-### Parameters
+For this implementation, you will need to use the Docusaurus swizzle command to modify the existing components. The swizzle command allows you to swap out the existing component with a modified one that can handle RTL languages.
 
-- `a`: An integer value representing the first number to be added.
-- `b`: An integer value representing the second number to be added.
+Parsing Country Data
 
-### Returns
+The country data returned by the system has a specific format that must be parsed correctly. The data includes a name field and a key field that is an integer. It is important to note that the name field must be parsed correctly, as it may contain important information for users.
 
-- An integer value that represents the sum of the two input parameters `a` and `b`.
+To ensure that you are parsing the name field correctly, review your code and ensure that you are properly extracting the name field from the data. If you are unsure, please review your code and test your implementation thoroughly.
 
-## Context
+Conclusion
 
-To handle right-to-left (RTL) languages, you would have to `swizzle` the components. Unfortunately, Docusaurus 2 currently does not have a built-in way for translations. However, we will take RTL languages into account when building it.
-
-The country data returned from the API has the following format:
-
-```
-{
-  "name": "Afghanistan",
-  "key": 4,
-  "alpha2Code": "AF",
-  "flagImageUri": "https://restcountries.com/data/afg.svg"
-}
-```
-
-Please ensure that you parse the name field correctly. It is a string representing the name of the country.
+In conclusion, the implementation of a swizzle component is essential to handle RTL languages in Docusaurus 2. Additionally, careful attention must be paid to parsing the country data correctly, with special attention to the name field. If you have any questions, please consult the Docusaurus documentation or contact the support team for further assistance.
 
 [[file-0.polybot.js:end]]
 
 [[file-1.polybot.js:start]]
 
-# Docusaurus 2 Documentation
+Documentation for Code 5qd1uld4efw
 
-Welcome to the Docusaurus 2 documentation! This documentation is aimed at developers who want to use Docusaurus 2 to build their website.
+Introduction:
 
-## Swizzling Components
+This code consists of functionality for handling RTL (Right-to-Left) languages in Docusaurus 2. To implement this, swizzling of components needs to be performed. However, it should be noted that translations are not currently supported in Docusaurus 2, but RTL language support will be considered in future updates. 
 
-To handle specific features, such as RTL languages, you may need to swizzle Docusaurus 2 components. Swizzling allows you to override and customize the default components to fit your unique requirements. To learn how to swizzle components, refer to the [Docusaurus 2 CLI documentation](https://v2.docusaurus.io/docs/cli/#docusaurus-swizzle).
+Functionality:
 
-## Country Data Format
+The main functionality of the code is to handle RTL languages in Docusaurus 2. To achieve this, it is necessary to swizzle the existing components in order to support this directionality. 
 
-When working with country data, it is important to ensure that you parse the data correctly. The country data returned has the following format:
+Data Format:
 
-```  
+The country data returned by this code has a specific format, as shown in the image below:
+
+[![enter image description here][1]][1]
+
+It is important to ensure that this data is parsed correctly. Please note that both the `key` and `name` fields should be parsed, as the latter is not currently being parsed by the code. 
+
+Conclusion:
+
+This code provides functionality for handling RTL languages in Docusaurus 2, but requires swizzling of components to achieve this. The data returned by the code has a specific format that needs to be properly parsed.
+
+[[file-1.polybot.js:end]]
+
+[[file-3.polybot.js:start]]
+
+# Documentation for Country Data Parsing
+
+This documentation explains the process for correctly parsing the country data format that is returned. The instructions below outline the steps for swizzling the components to handle this, as well as a note about the `name` field.
+
+## Swizzling the Components
+
+To correctly handle the country data format, it will be necessary to swizzle the components according to the instructions provided in the Docusaurus 2 documentation. Specifically, use the `docusaurus-swizzle` command for this purpose. 
+
+Please note that while Docusaurus 2 does not yet support translations, we will take into account RTL languages when we build it.
+
+## Parsing the Country Data Format
+
+The country data is returned in the format shown below:
+
+```
 {
-  "name": "Afghanistan",
-  "alpha2Code": "AF",
-  "alpha3Code": "AFG",
-  ...
+    "name": "Jordan",
+    "flag": "https://restcountries.eu/data/jor.svg",
+    "code": "JOR",
+    "capital": "Amman",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "population": 9531712,
+    "area": 89342
 }
 ```
 
-Make sure to parse the `name` field correctly, as it contains the name of the country. Note that the `alpha2Code` and `alpha3Code` fields contain the two- and three-letter country codes, respectively.
+It is important to ensure that the `name` field is parsed correctly. Although it may seem like only the key, which is an integer, is being parsed, this is not the case. Please make sure that both the key and the `name` field are being parsed, as shown above.
 
-At present, we do not support translations in Docusaurus 2. However, we are working to take into account RTL languages in our future releases.
+Thank you for using this documentation. If you have any further questions, please don't hesitate to reach out.
 
-[[file-1.polybot.js:end]]
+[[file-3.polybot.js:end]]
